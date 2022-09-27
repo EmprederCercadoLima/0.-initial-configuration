@@ -1,0 +1,92 @@
+{"properties": [
+  {
+    "name": "spring.cloud.application.name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cloud.application.name'"
+  },
+  {
+    "name": "spring.cloud.config.import-check.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cloud.config.import-check.enabled'"
+  },
+  {
+    "name": "application.circuit-breaker.bespin.default.ring-buffer-size-in-closed-state",
+    "type": "java.lang.String",
+    "description": "A description for 'application.circuit-breaker.bespin.default.ring-buffer-size-in-closed-state'"
+  },
+  {
+    "name": "application.circuit-breaker.bespin.default.ring-buffer-size-in-half-open-state",
+    "type": "java.lang.String",
+    "description": "A description for 'application.circuit-breaker.bespin.default.ring-buffer-size-in-half-open-state'"
+  },
+  {
+    "name": "application.circuit-breaker.bespin.default.failure-rate-threshold",
+    "type": "java.lang.String",
+    "description": "A description for 'application.circuit-breaker.bespin.default.failure-rate-threshold'"
+  },
+  {
+    "name": "application.circuit-breaker.bespin.default.wait-duration-in-open-state",
+    "type": "java.lang.String",
+    "description": "A description for 'application.circuit-breaker.bespin.default.wait-duration-in-open-state'"
+  },
+  {
+    "name": "application.integration-swagger-v1.httpclient.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-swagger-v1.httpclient.base-url'"
+  },
+  {
+    "name": "application.integration-swagger-v1.httpclient.timeout-connect",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-swagger-v1.httpclient.timeout-connect'"
+  },
+  {
+    "name": "application.integration-swagger-v1.httpclient.timeout-read",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-swagger-v1.httpclient.timeout-read'"
+  },
+  {
+    "name": "application.integration-swagger-v1.httpclient.timeout-write",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-swagger-v1.httpclient.timeout-write'"
+  },
+  {
+    "name": "application.integration-swagger-v1.headers.code-app",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-swagger-v1.headers.code-app'"
+  },
+  {
+    "name": "application.integration-retrofit-v1.httpclient.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-retrofit-v1.httpclient.base-url'"
+  },
+  {
+    "name": "application.integration-swagger-v1.headers.code-org",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-swagger-v1.headers.code-org'"
+  },
+  {
+    "name": "application.integration-retrofit-v1.httpclient.timeout-connect",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-retrofit-v1.httpclient.timeout-connect'"
+  },
+  {
+    "name": "application.integration-retrofit-v1.httpclient.timeout-read",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-retrofit-v1.httpclient.timeout-read'"
+  },
+  {
+    "name": "application.integration-retrofit-v1.httpclient.timeout-write",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-retrofit-v1.httpclient.timeout-write'"
+  },
+  {
+    "name": "application.integration-retrofit-v1.headers.code-app",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-retrofit-v1.headers.code-app'"
+  },
+  {
+    "name": "application.integration-retrofit-v1.headers.code-org",
+    "type": "java.lang.String",
+    "description": "A description for 'application.integration-retrofit-v1.headers.code-org'"
+  }
+]}

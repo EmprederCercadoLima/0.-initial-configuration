@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>pe.com.niubiz</groupId>
+		<artifactId>bespin-core-parent</artifactId>
+		<version>1.0.0</version>
+		<relativePath />
+	</parent>
+	<groupId>com.initial.configuration</groupId>
+	<artifactId>0.-initial-configuration</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>0.-initial-configuration</name>
+	<description>Demo project initial configuration</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+	<dependency>
+			<groupId>pe.com.niubiz</groupId>
+			<artifactId>bespin-core-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>pe.com.niubiz</groupId>
+			<artifactId>bespin-core-starter-openapi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>pe.com.niubiz</groupId>
+			<artifactId>bespin-core-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<defaultGoal>spring-boot:run</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.openapitools</groupId>
+				<artifactId>openapi-generator-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<configuration>
+								<configOptions>
+									<library>spring-boot</library>
+									<sourceFolder>src/gen/java/main</sourceFolder>
+									<oas3>true</oas3>
+									<useSpringController>true</useSpringController>
+									<useSpringfox>false</useSpringfox>
+									<openApiNullable>false</openApiNullable>								
+								</configOptions>
+								<importMappings>
+									BespinException=pe.com.niubiz.core.exception.BespinException,
+									BespinExceptionDetail=pe.com.niubiz.core.exception.BespinExceptionDetail
+								</importMappings>
+							</configuration>
+						</execution>
+					</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
