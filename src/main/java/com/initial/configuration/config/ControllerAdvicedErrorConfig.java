@@ -33,11 +33,11 @@ public class ControllerAdvicedErrorConfig {
   @ResponseBody
   @ExceptionHandler(value = HelloWordException.class)
   public ResponseEntity<Object> handleException(HelloWordException ex) {
-    log.error("CUSTOM EXCEPTION => ", ex);
+    log.error(" 1 CUSTOM EXCEPTION => ", ex);
     String code = ex.isExternalErrorCode()
         ? ex.getReason()
         : exceptionPropertiesConfig.getErrors().get(ex.getErrorCode()).getCode();
-    this.logCustomError("CUSTOM EXCEPTION", code);
+    this.logCustomError(" 1 CUSTOM EXCEPTION", code);
     return ResponseEntity
         .status(ex.getStatus())
         .body(BespinException.builder().systemCode(code).build());
@@ -46,30 +46,30 @@ public class ControllerAdvicedErrorConfig {
   @ResponseStatus(HttpStatus.UNAUTHORIZED)
   @ExceptionHandler(AuthenticationException.class)
   public BespinException exception(AuthenticationException ex) {
-    log.error("EXCEPTION - UNAUTHORIZED: ", ex);
+    log.error(" 2 EXCEPTION - UNAUTHORIZED: ", ex);
     String code = exceptionPropertiesConfig.getErrors().get(ErrorCodeEnum.UNAUTHORIZED_EXCEPTION).getCode();
-    this.logCustomError("EXCEPTION - UNAUTHORIZED", code);
+    this.logCustomError(" 2 EXCEPTION - UNAUTHORIZED", code);
     return BespinException.builder().systemCode(code).build();
   }
 
   @ResponseStatus(HttpStatus.FORBIDDEN)
   @ExceptionHandler(AccessDeniedException.class)
   public BespinException exception(AccessDeniedException ex) {
-    log.error("EXCEPTION - FORBIDDEN: ", ex);
+    log.error(" 3 EXCEPTION - FORBIDDEN: ", ex);
     String code = exceptionPropertiesConfig.getErrors().get(ErrorCodeEnum.FORBIDDEN_EXCEPTION).getCode();
-    this.logCustomError("EXCEPTION - FORBIDDEN", code);
+    this.logCustomError(" 3 EXCEPTION - FORBIDDEN", code);
     return BespinException.builder().systemCode(code).build();
   }
   
 
   @ExceptionHandler(BespinException.class)
   public ResponseEntity<BespinException> exception(BespinException ex) {
-    log.error("EXCEPTION - UNAUTHORIZED: ", ex);
+    log.error(" 4 EXCEPTION - UNAUTHORIZED: ", ex);
     String code = Objects.isNull(ex.getCode())
         ? exceptionPropertiesConfig.getErrors().get(ErrorCodeEnum.SERVER_ERROR_EXCEPTION).getCode()
         : ex.getCode();
     
-    this.logCustomError("EXCEPTION - UNAUTHORIZED", code);
+    this.logCustomError(" 4 EXCEPTION - UNAUTHORIZED", code);
     return ResponseEntity.status(this.fromCategoryToHttpStatus(ex.getCategory())).body(
         BespinException.builder().category(ex.getCategory()).systemCode(code).build());
   }

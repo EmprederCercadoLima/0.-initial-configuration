@@ -1,4 +1,4 @@
-package com.initial.configuration.controller.response;
+package com.initial.configuration.util;
 
 import java.util.List;
 import java.util.Map;
@@ -13,10 +13,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HelloWordResponse {
+public class ProxyApiResponseUtil {
 
   private List<Map<String, String>> metadata;
 
-  private Map<String, List<Map<String, String>>> listHelloWordResponse;
+  private Map<String, List<Map<String, String>>> response;
   
 }

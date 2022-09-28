@@ -1,8 +1,10 @@
 package com.initial.configuration.proxy.impl;
 
 import com.initial.configuration.config.PublicPropertiesConfig;
-import com.initial.configuration.controller.response.HelloWordResponse;
 import com.initial.configuration.proxy.intf.IntegrationSwaggerProxyInterface;
+import com.initial.configuration.util.ProxyApiResponseUtil;
+
+import com.google.gson.Gson;
 
 import java.io.IOException;
 
@@ -26,15 +28,17 @@ public class IntegrationSwaggerProxyImplement {
   @Autowired
   private PublicPropertiesConfig publicPropertiesConfig;
   
-  public HelloWordResponse getHelloWord(Map<String, String> headers) throws IOException {
+  public ProxyApiResponseUtil getHelloWord(Map<String, String> headers) throws IOException {
     headers.putAll(this.publicPropertiesConfig.getHeaders());
-    Call<HelloWordResponse> retrofitCall = integrationSwaggerProxyInterface.getHelloWord(headers);
-    Response<HelloWordResponse> response = retrofitCall.execute();
+    Call<ProxyApiResponseUtil> retrofitCall = integrationSwaggerProxyInterface.getHelloWord(headers);
+    Response<ProxyApiResponseUtil> response = retrofitCall.execute();
     if (response != null && !response.isSuccessful() && response.errorBody() != null) {
-      log.error("error:getHelloWord:integrationSwaggerProxyInterface:response.errorBody{}", response.errorBody());
+      Gson gson = new Gson();
+      ProxyApiResponseUtil responseError = gson.fromJson(response.errorBody().charStream(), ProxyApiResponseUtil.class);
+      return responseError;
     }
-    log.info(":getHelloWord:integrationSwaggerProxyInterface:response{}", response.body().getMetadata().get(0).get("statusText"));
-    return response.body();
+    ProxyApiResponseUtil responseSuccess =  response.body();
+    return responseSuccess;
   }
   
 }
