@@ -2,6 +2,7 @@ package com.initial.configuration.controller;
 
 import com.initial.configuration.business.intf.InitialConfigurationBusinessInterface;
 import com.initial.configuration.controller.request.HeadersRequest;
+import com.initial.configuration.controller.response.HelloWordResponse;
 import com.initial.configuration.util.StringsUtil;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class InitialConfigurationController {
   private InitialConfigurationBusinessInterface initialConfigurationBusinessInterface;
   
   @GetMapping("/hello-word")
-  public String getHelloWord(
+  public HelloWordResponse getHelloWord(
     @ParameterObject @HttpHeadersMapping HeadersRequest headerRequest) throws IOException {
     return initialConfigurationBusinessInterface.getHelloWordCustomized("Fernando.Zavaleta",  StringsUtil.headerValidate(headerRequest.getClientCode(), headerRequest.getPublicIp()));
   }

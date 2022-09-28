@@ -15,6 +15,7 @@
 	<description>Demo project initial configuration</description>
 	<properties>
 		<java.version>11</java.version>
+		<resilience4j.version>0.13.2</resilience4j.version>
 	</properties>
 	<dependencies>
 	<dependency>
@@ -38,6 +39,18 @@
 			<optional>true</optional>
 		</dependency>
 
+		<dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-circuitbreaker</artifactId>
+            <version>${resilience4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-core</artifactId>
+            <version>${resilience4j.version}</version>
+        </dependency>
+        
 	</dependencies>
 	<build>
 		<defaultGoal>spring-boot:run</defaultGoal>
@@ -58,7 +71,7 @@
 									<oas3>true</oas3>
 									<useSpringController>true</useSpringController>
 									<useSpringfox>false</useSpringfox>
-									<openApiNullable>false</openApiNullable>								
+									<openApiNullable>false</openApiNullable>
 								</configOptions>
 								<importMappings>
 									BespinException=pe.com.niubiz.core.exception.BespinException,

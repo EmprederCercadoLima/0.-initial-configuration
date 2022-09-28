@@ -2,6 +2,7 @@ package com.initial.configuration.business.impl;
 
 import com.initial.configuration.business.intf.InitialConfigurationBusinessInterface;
 import com.initial.configuration.controller.InitialConfigurationController;
+import com.initial.configuration.controller.response.HelloWordResponse;
 import com.initial.configuration.proxy.impl.IntegrationSwaggerProxyImplement;
 import com.initial.configuration.proxy.intf.IntegrationSwaggerProxyInterface;
 
@@ -22,7 +23,7 @@ public class InitialConfigurationBusinessImplement implements InitialConfigurati
   private IntegrationSwaggerProxyImplement integrationSwaggerProxyImplement;
   
   @Override
-  public String getHelloWordCustomized(String firstName,  Map<String, String> headers) throws IOException {
+  public HelloWordResponse getHelloWordCustomized(String firstName,  Map<String, String> headers) throws IOException {
     return integrationSwaggerProxyImplement.getHelloWord(headers);
   }
 

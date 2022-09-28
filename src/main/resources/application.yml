@@ -7,16 +7,6 @@ spring:
   application:
     name: initial-configuration
 application:
-  errors:
-    BAD_REQUEST_EXCEPTION:
-      code: "SBSM-400"
-      message: "General Bad Request"
-    SERVER_ERROR_EXCEPTION:
-      code: "SBSM-500"
-      message: "General Exception"
-    UNAUTHORIZED_EXCEPTION:
-      code: "SBSM-401"
-      message: "Not authorized"
   integration-swagger-v1:
     httpclient:
       base-url: http://localhost:8080

@@ -1,6 +1,7 @@
 package com.initial.configuration.proxy.impl;
 
 import com.initial.configuration.config.PublicPropertiesConfig;
+import com.initial.configuration.controller.response.HelloWordResponse;
 import com.initial.configuration.proxy.intf.IntegrationSwaggerProxyInterface;
 
 import java.io.IOException;
@@ -25,16 +26,15 @@ public class IntegrationSwaggerProxyImplement {
   @Autowired
   private PublicPropertiesConfig publicPropertiesConfig;
   
-  public String getHelloWord(Map<String, String> headers) throws IOException {
+  public HelloWordResponse getHelloWord(Map<String, String> headers) throws IOException {
     headers.putAll(this.publicPropertiesConfig.getHeaders());
-    Call<String> retrofitCall = integrationSwaggerProxyInterface.getHelloWord(headers);
-    Response<String> response = retrofitCall.execute();
+    Call<HelloWordResponse> retrofitCall = integrationSwaggerProxyInterface.getHelloWord(headers);
+    Response<HelloWordResponse> response = retrofitCall.execute();
     if (response != null && !response.isSuccessful() && response.errorBody() != null) {
       log.error("error:getHelloWord:integrationSwaggerProxyInterface:response.errorBody{}", response.errorBody());
     }
-    log.info(":getHelloWord:integrationSwaggerProxyInterface:response{}", response);
+    log.info(":getHelloWord:integrationSwaggerProxyInterface:response{}", response.body().getMetadata().get(0).get("statusText"));
     return response.body();
-    
   }
   
 }
